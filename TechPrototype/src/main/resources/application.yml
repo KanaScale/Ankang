@@ -1,0 +1,72 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: ankang-assistant-backend
+  datasource:
+    url: "${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/ankang_assistant?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}"
+    username: "${SPRING_DATASOURCE_USERNAME:ankang}"
+    password: "${SPRING_DATASOURCE_PASSWORD:ankang123}"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: "${SPRING_REDIS_HOST:127.0.0.1}"
+      port: ${SPRING_REDIS_PORT:6379}
+      password: "${SPRING_REDIS_PASSWORD:}"
+      database: ${SPRING_REDIS_DATABASE:0}
+  jackson:
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+
+knife4j:
+  enable: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui/index.html
+
+auth:
+  jwt:
+    secret: "${AUTH_JWT_SECRET:ankang-assistant-dev-secret-change-me}"
+    expiration-seconds: ${AUTH_JWT_EXPIRATION_SECONDS:900}
+  refresh:
+    expiration-days: ${AUTH_REFRESH_EXPIRATION_DAYS:30}
+
+map:
+  amap:
+    web-key: "${AMAP_WEB_KEY:}"
+
+agent:
+  provider: ${AGENT_PROVIDER:mock}
+  base-url: ${AGENT_BASE_URL:https://models.sjtu.edu.cn/api/v1}
+  api-key: ${AGENT_API_KEY:}
+  model-name: ${AGENT_MODEL_NAME:deepseek-chat}
+  web-search:
+    enabled: ${WEB_SEARCH_ENABLED:true}
+    provider: ${WEB_SEARCH_PROVIDER:mock}
+    api-key: ${WEB_SEARCH_API_KEY:}
+    base-url: ${WEB_SEARCH_BASE_URL:}
+    max-results: ${WEB_SEARCH_MAX_RESULTS:5}
+    timeout-seconds: ${WEB_SEARCH_TIMEOUT_SECONDS:8}
+  qdrant:
+    host: ${QDRANT_HOST:127.0.0.1}
+    port: ${QDRANT_PORT:6333}
+    collection: ${QDRANT_COLLECTION:ankang_knowledge}
+  gms:
+    enabled: ${GMS_ENABLED:false}
+    write-enabled: ${GMS_WRITE_ENABLED:true}
+    base-url: ${GMS_BASE_URL:http://127.0.0.1:8091}
+    timeout-millis: ${GMS_TIMEOUT_MILLIS:800}
+    read-limit: ${GMS_READ_LIMIT:5}

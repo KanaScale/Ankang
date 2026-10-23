@@ -1,0 +1,25 @@
+[Unit]
+Description=Ankang Global Memory Service
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/ankang-assistant/gms/mem-interface-layer
+EnvironmentFile=-/etc/ankang-assistant/backend.env
+EnvironmentFile=-/etc/ankang-assistant/gms.env
+Environment=LOCAL_MEM0_ROOT=/opt/ankang-assistant/gms/mem0
+Environment=GMS_ENV_FILE=/etc/ankang-assistant/gms.env
+Environment=GMS_HOST=127.0.0.1
+Environment=GMS_PORT=8091
+Environment=GMS_QDRANT_COLLECTION=ankang_agent_memory_v1
+Environment=GMS_ENABLE_GRAPH=false
+Environment=GMS_HISTORY_DB_PATH=/opt/ankang-assistant/gms/history.db
+Environment=GMS_MINER_ENABLED=false
+ExecStart=/opt/ankang-assistant/gms/.venv/bin/python -m uvicorn gms_api:app --host 127.0.0.1 --port 8091
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

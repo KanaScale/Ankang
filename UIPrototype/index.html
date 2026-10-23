@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>健康安全助手原型</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="phone-shell" aria-label="健康安全助手页面原型">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">今日概览</p>
+          <h1>健康安全助手</h1>
+        </div>
+        <button class="icon-button" type="button" aria-label="消息提醒">!</button>
+      </header>
+
+      <section class="screen active" id="home-screen" data-screen="home">
+        <div class="status-panel">
+          <div>
+            <p class="panel-label">当前状态</p>
+            <strong>低风险</strong>
+            <span>身体指标稳定，暂无异常预警</span>
+          </div>
+          <div class="score-ring" aria-label="健康评分 92 分">92</div>
+        </div>
+
+        <div class="quick-actions" aria-label="快捷操作">
+          <button type="button">
+            <span class="action-icon">+</span>
+            健康打卡
+          </button>
+          <button type="button">
+            <span class="action-icon">?</span>
+            紧急求助
+          </button>
+          <button type="button">
+            <span class="action-icon">*</span>
+            添加设备
+          </button>
+        </div>
+
+        <section class="section-block">
+          <div class="section-title">
+            <h2>核心指标</h2>
+            <span>刚刚更新</span>
+          </div>
+          <div class="metric-grid">
+            <article class="metric-card">
+              <span>心率</span>
+              <strong>76</strong>
+              <small>次/分钟</small>
+            </article>
+            <article class="metric-card">
+              <span>体温</span>
+              <strong>36.6</strong>
+              <small>摄氏度</small>
+            </article>
+            <article class="metric-card">
+              <span>血氧</span>
+              <strong>98</strong>
+              <small>%</small>
+            </article>
+            <article class="metric-card">
+              <span>睡眠</span>
+              <strong>7.5</strong>
+              <small>小时</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-title">
+            <h2>安全提醒</h2>
+            <span>2 条</span>
+          </div>
+          <div class="notice-list">
+            <article>
+              <b>高温提醒</b>
+              <p>户外活动建议避开 12:00-15:00，并及时补水。</p>
+            </article>
+            <article>
+              <b>用药提醒</b>
+              <p>今晚 20:30 需要记录一次降压药服用情况。</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen" id="risk-screen" data-screen="risk">
+        <div class="section-title">
+          <h2>风险预警</h2>
+          <span>按优先级排序</span>
+        </div>
+        <div class="risk-list">
+          <article class="risk-card high">
+            <span>高</span>
+            <div>
+              <b>连续久坐</b>
+              <p>已连续静坐 96 分钟，建议起身活动 5 分钟。</p>
+            </div>
+          </article>
+          <article class="risk-card medium">
+            <span>中</span>
+            <div>
+              <b>睡眠不足</b>
+              <p>近三天平均睡眠低于 6.5 小时。</p>
+            </div>
+          </article>
+          <article class="risk-card low">
+            <span>低</span>
+            <div>
+              <b>天气变化</b>
+              <p>明天降温，注意添加衣物。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="screen" id="report-screen" data-screen="report">
+        <div class="section-title">
+          <h2>健康上报</h2>
+          <span>今日未提交</span>
+        </div>
+        <form class="report-form">
+          <label>
+            今日感觉
+            <select>
+              <option>良好</option>
+              <option>一般</option>
+              <option>不适</option>
+            </select>
+          </label>
+          <label>
+            体温
+            <input type="text" value="36.6" />
+          </label>
+          <label>
+            备注
+            <textarea rows="4" placeholder="可填写头晕、乏力、咳嗽等情况"></textarea>
+          </label>
+          <button class="primary-button" type="button">提交上报</button>
+        </form>
+      </section>
+
+      <section class="screen" id="profile-screen" data-screen="profile">
+        <div class="profile-head">
+          <div class="avatar">林</div>
+          <div>
+            <h2>林同学</h2>
+            <p>已绑定手环、紧急联系人 2 人</p>
+          </div>
+        </div>
+        <div class="profile-list">
+          <button type="button">健康档案 <span>></span></button>
+          <button type="button">设备管理 <span>></span></button>
+          <button type="button">紧急联系人 <span>></span></button>
+          <button type="button">隐私与权限 <span>></span></button>
+        </div>
+      </section>
+
+      <nav class="tab-bar" aria-label="主导航">
+        <button class="active" type="button" data-target="home">首页</button>
+        <button type="button" data-target="risk">预警</button>
+        <button type="button" data-target="report">上报</button>
+        <button type="button" data-target="profile">我的</button>
+      </nav>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+
+# IDE configuration
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Java / Maven build output
+**/target/
+*.class
+*.log
+hs_err_pid*
+replay_pid*
+
+# Flutter / Dart generated files
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/build/
+**/coverage/
+**/doc/api/
+*.symbols
+*.map.json
+
+# Android / Gradle local and generated files
+**/.gradle/
+**/android/local.properties
+**/android/key.properties
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+*.jks
+*.keystore
+
+# Python caches and local virtual environments
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local environment and secret files
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Test and coverage reports
+*.dumpstream
+**/surefire-reports/
+
+# Project documents
+/docs/
+
+# Temporary Office files outside docs
+~$*.docx
+~$*.xlsx
+~$*.pptx
+TechPrototype/target/
+# Local performance-test credentials and generated results
+scripts/performance/perf-register-results.csv
+scripts/performance/perf-usernames.json
+scripts/performance/reports/
